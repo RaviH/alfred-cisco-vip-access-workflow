@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>org.javawithravi.alfred.workflow.cisco.anytimeconnect.vip</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>02A2E60A-1DDB-4389-BC57-8BB8C7047485</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>38A027C7-0AD0-4ACA-8B78-51273FE092A6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2E863A6C-A7BD-4D76-A57B-8F1B46BA6B88</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9D8919E0-CB6A-47E1-9C73-54010F40E08F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9D8919E0-CB6A-47E1-9C73-54010F40E08F</key>
+		<array/>
+		<key>D469F652-63F0-4F93-B7C6-380A9F5D9522</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>02A2E60A-1DDB-4389-BC57-8BB8C7047485</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>71357FA4-E82E-4090-A0C0-3197749EE450</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DD023221-1885-4A3B-9BBB-93CBA5AB4527</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>38A027C7-0AD0-4ACA-8B78-51273FE092A6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ravi Hasija</string>
+	<key>description</key>
+	<string>Connect to Cisco Anytime Connect with VIP Access</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>VPN</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python vpn_credentials.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>02A2E60A-1DDB-4389-BC57-8BB8C7047485</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>activate application "Cisco AnyConnect Secure Mobility Client"
+
+activate application "VIP Access"
+
+tell application "System Events" to tell process "VIP Access"
+	click menu item "Copy Security Code" of menu 1 of menu bar item "VIP Access" of menu bar 1
+end tell
+
+activate application "Cisco AnyConnect Secure Mobility Client"
+
+delay 1.0
+
+# Enter a certain text into the active textbox
+tell application "System Events" to keystroke "{query}"
+
+# Paste the security code.
+tell application "System Events" to keystroke "v" using {command down}
+
+# Press enter.
+tell application "System Events" to key code 36
+
+activate application "VIP Access"
+
+delay 0.1
+
+tell application "System Events" to keystroke "q" using {command down}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9D8919E0-CB6A-47E1-9C73-54010F40E08F</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>vpn connect</string>
+				<key>subtext</key>
+				<string>Connect to VPN via Cisco AnyConnect Secure Mobility Client via VIP Access</string>
+				<key>text</key>
+				<string>VPN</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>D469F652-63F0-4F93-B7C6-380A9F5D9522</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>'{query}', {allvars}</string>
+				<key>cleardebuggertext</key>
+				<false/>
+				<key>processoutputs</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.debug</string>
+			<key>uid</key>
+			<string>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>activate application "Cisco AnyConnect Secure Mobility Client"
+
+delay 0.5
+
+# Paste the security code.
+tell application "System Events" to keystroke "q" using {command down}</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>71357FA4-E82E-4090-A0C0-3197749EE450</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>import create_credentials
+
+
+print(create_credentials.main("{query}"))</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>38A027C7-0AD0-4ACA-8B78-51273FE092A6</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Password creation result: {query}</string>
+				<key>title</key>
+				<string>Password creation result: {query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>2E863A6C-A7BD-4D76-A57B-8F1B46BA6B88</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>vpn create password:</string>
+				<key>subtext</key>
+				<string>Provide password for your network</string>
+				<key>text</key>
+				<string>Provide password for your network</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>DD023221-1885-4A3B-9BBB-93CBA5AB4527</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Allows the user to connect to VPN via Cisco AnyConnect Secure Mobility Center and VIP Access.
+
+You would need to store the password for the VPN in keychain as described in the GitHub page OR use the other flow to store the password in config.json in workflow data directory.</string>
+	<key>uidata</key>
+	<dict>
+		<key>02A2E60A-1DDB-4389-BC57-8BB8C7047485</key>
+		<dict>
+			<key>xpos</key>
+			<integer>350</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>2E863A6C-A7BD-4D76-A57B-8F1B46BA6B88</key>
+		<dict>
+			<key>xpos</key>
+			<integer>670</integer>
+			<key>ypos</key>
+			<integer>360</integer>
+		</dict>
+		<key>38A027C7-0AD0-4ACA-8B78-51273FE092A6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>350</integer>
+			<key>ypos</key>
+			<integer>360</integer>
+		</dict>
+		<key>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</key>
+		<dict>
+			<key>xpos</key>
+			<integer>520</integer>
+			<key>ypos</key>
+			<integer>90</integer>
+		</dict>
+		<key>71357FA4-E82E-4090-A0C0-3197749EE450</key>
+		<dict>
+			<key>xpos</key>
+			<integer>350</integer>
+			<key>ypos</key>
+			<integer>220</integer>
+		</dict>
+		<key>9D8919E0-CB6A-47E1-9C73-54010F40E08F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>600</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>D469F652-63F0-4F93-B7C6-380A9F5D9522</key>
+		<dict>
+			<key>xpos</key>
+			<integer>90</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>DD023221-1885-4A3B-9BBB-93CBA5AB4527</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<integer>360</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>0.2.0</string>
+	<key>webaddress</key>
+	<string>www.javawithravi.com</string>
+</dict>
+</plist>

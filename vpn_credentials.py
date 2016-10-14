@@ -3,10 +3,10 @@
 import os
 import json
 import base64
+import sys
+
 
 from find_credentials import get_password
-
-os.environ['alfred_workflow_data'] = '/Users/rhasija/Google Drive/Alfred/Alfred.alfredpreferences/workflows/user.workflow.B865A65B-5916-46CE-AE15-D413FFB64F64'
 
 
 def main():
@@ -25,9 +25,10 @@ def main():
             password = config['password']
             print base64.b64decode(password)
         else:
-            print "Please provide a config.json in " + os.getenv('alfred_workflow_data') + " dir."
+            sys.stdout.write("Network password not configured")
 
 
 if __name__ == '__main__':
+	# for debugging the app
     os.environ['alfred_workflow_data'] = '/Users/rhasija/Library/Application Support/Alfred 3/Workflow Data/org.javawithravi.alfred.workflow.cisco.anytimeconnect.vip'
     main()

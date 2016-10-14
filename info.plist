@@ -12,7 +12,17 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</string>
+				<string>4A1413B5-97AD-42EF-8226-B5579F6516BB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8E0E5223-9D15-4809-9F1A-BAD62B0B8742</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -34,7 +44,35 @@
 				<false/>
 			</dict>
 		</array>
-		<key>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</key>
+		<key>4A1413B5-97AD-42EF-8226-B5579F6516BB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AE353FC9-626E-4A71-AC1C-562A1CE65D9F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8E0E5223-9D15-4809-9F1A-BAD62B0B8742</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B52A3B9E-F7FE-4BF9-A9F8-AFB3A3B40A1A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9D8919E0-CB6A-47E1-9C73-54010F40E08F</key>
+		<array/>
+		<key>AE353FC9-626E-4A71-AC1C-562A1CE65D9F</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -47,8 +85,19 @@
 				<false/>
 			</dict>
 		</array>
-		<key>9D8919E0-CB6A-47E1-9C73-54010F40E08F</key>
-		<array/>
+		<key>B52A3B9E-F7FE-4BF9-A9F8-AFB3A3B40A1A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9D87A731-6C2A-440E-8AEF-A32154873FA8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>D469F652-63F0-4F93-B7C6-380A9F5D9522</key>
 		<array>
 			<dict>
@@ -102,29 +151,6 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>/usr/bin/python vpn_credentials.py "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>02A2E60A-1DDB-4389-BC57-8BB8C7047485</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
 				<string>activate application "Cisco AnyConnect Secure Mobility Client"
@@ -137,7 +163,7 @@ end tell
 
 activate application "Cisco AnyConnect Secure Mobility Client"
 
-delay 1.0
+delay 2.0
 
 # Enter a certain text into the active textbox
 tell application "System Events" to keystroke "{query}"
@@ -170,6 +196,65 @@ tell application "System Events" to keystroke "q" using {command down}</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>inputstring</key>
+				<string></string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>Network password not configured</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>4A1413B5-97AD-42EF-8226-B5579F6516BB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>'{query}', {allvars}</string>
+				<key>cleardebuggertext</key>
+				<false/>
+				<key>processoutputs</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.debug</string>
+			<key>uid</key>
+			<string>AE353FC9-626E-4A71-AC1C-562A1CE65D9F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python vpn_credentials.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>02A2E60A-1DDB-4389-BC57-8BB8C7047485</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -191,6 +276,50 @@ tell application "System Events" to keystroke "q" using {command down}</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Please setup the password as mention on the Github page.</string>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9D87A731-6C2A-440E-8AEF-A32154873FA8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8B46BD40-1752-4823-86D7-193545E07C32</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>'{query}', {allvars}</string>
 				<key>cleardebuggertext</key>
@@ -201,7 +330,7 @@ tell application "System Events" to keystroke "q" using {command down}</string>
 			<key>type</key>
 			<string>alfred.workflow.utility.debug</string>
 			<key>uid</key>
-			<string>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</string>
+			<string>B52A3B9E-F7FE-4BF9-A9F8-AFB3A3B40A1A</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -232,6 +361,25 @@ tell application "System Events" to keystroke "q" using {command down}</string>
 			<string>71357FA4-E82E-4090-A0C0-3197749EE450</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string></string>
+				<key>matchcasesensitive</key>
+				<false/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>Network password not configured</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>8E0E5223-9D15-4809-9F1A-BAD62B0B8742</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -329,12 +477,12 @@ You would need to store the password for the VPN in keychain as described in the
 			<key>ypos</key>
 			<integer>360</integer>
 		</dict>
-		<key>6C881D39-9C8A-4E2F-8720-5891C61EB2F5</key>
+		<key>4A1413B5-97AD-42EF-8226-B5579F6516BB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>520</integer>
+			<integer>640</integer>
 			<key>ypos</key>
-			<integer>90</integer>
+			<integer>40</integer>
 		</dict>
 		<key>71357FA4-E82E-4090-A0C0-3197749EE450</key>
 		<dict>
@@ -343,12 +491,47 @@ You would need to store the password for the VPN in keychain as described in the
 			<key>ypos</key>
 			<integer>220</integer>
 		</dict>
+		<key>8B46BD40-1752-4823-86D7-193545E07C32</key>
+		<dict>
+			<key>xpos</key>
+			<integer>80</integer>
+			<key>ypos</key>
+			<integer>200</integer>
+		</dict>
+		<key>8E0E5223-9D15-4809-9F1A-BAD62B0B8742</key>
+		<dict>
+			<key>xpos</key>
+			<integer>650</integer>
+			<key>ypos</key>
+			<integer>220</integer>
+		</dict>
+		<key>9D87A731-6C2A-440E-8AEF-A32154873FA8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>840</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
 		<key>9D8919E0-CB6A-47E1-9C73-54010F40E08F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>600</integer>
+			<integer>850</integer>
 			<key>ypos</key>
-			<integer>60</integer>
+			<integer>10</integer>
+		</dict>
+		<key>AE353FC9-626E-4A71-AC1C-562A1CE65D9F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>730</integer>
+			<key>ypos</key>
+			<integer>40</integer>
+		</dict>
+		<key>B52A3B9E-F7FE-4BF9-A9F8-AFB3A3B40A1A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>740</integer>
+			<key>ypos</key>
+			<integer>220</integer>
 		</dict>
 		<key>D469F652-63F0-4F93-B7C6-380A9F5D9522</key>
 		<dict>

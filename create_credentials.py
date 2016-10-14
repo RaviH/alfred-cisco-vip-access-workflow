@@ -6,7 +6,8 @@ import json
 def main(query):
     try:
         data_dir = os.getenv('alfred_workflow_data').rstrip('\n')
-        print data_dir
+        if not os.path.exists(data_dir):
+	    	os.makedirs(data_dir)
         data_file_name = data_dir + "/config.json"
 
         data_file = open(data_file_name, 'w+')
